@@ -15,4 +15,8 @@ export class ApiService {
     const url:string = `${this.apiUrl}`;
     return this.http.get(url);
   }
+
+  getPokemonImage(pokemonId: number) {
+    return `${environment.imageApiUrl}/${pokemonId}.png`;
+  }
 }

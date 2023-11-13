@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+
+
+body, html {
+  margin: 0;
+  padding: $default-padding;
+  height: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header, .footer {
+  border: 1px solid $border-color;
+  color: $font-color;
+  padding: $default-padding;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  margin: 8px 0 8px 0;
+}
+
+.sidebar {
+  width: 30%;
+  padding: 20px;
+  margin-right: 20px;
+  border: 1px solid $border-color;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid $border-color;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 30%;
+  }
+}
+

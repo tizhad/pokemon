@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Pokemon} from "../models/pokemon";
+import {Pokemon} from "../../models/pokemon";
 
 @Component({
   selector: 'app-card',
@@ -8,4 +8,10 @@ import {Pokemon} from "../models/pokemon";
 })
 export class CardComponent {
   @Input() pokemon: Pokemon = {} as Pokemon;
+  isContentVisible: boolean = true;
+
+  onArrowClick() {
+    this.isContentVisible = !this.isContentVisible;
+
+  }
 }

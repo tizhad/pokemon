@@ -5,8 +5,7 @@
           (click)="onArrowClick()"
           [ngClass]="{'arrow-rotate' : !isContentVisible}">&#9654;</span>
   </div>
-  <div *ngIf="isContentVisible" class="card-content">
+  <div *ngIf="isContentVisible" class="card-content" (click)="onPokemonCardClicks()">
     <img class="card-image" src="{{pokemon.imageUrl}}" alt="Card Image">
   </div>
-
 </div>

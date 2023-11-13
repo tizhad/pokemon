@@ -9,7 +9,7 @@ import { ItemListComponent } from './components/item-list/item-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
-import { AboutComponent } from './components/about/about.component';
+import { PokemonDetailComponent } from './components/about/pokemon-detail.component';
 import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
@@ -20,7 +20,7 @@ import {AppRoutingModule} from "./app-routing.module";
     FooterComponent,
     ItemListComponent,
     SidebarComponent,
-    AboutComponent
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,

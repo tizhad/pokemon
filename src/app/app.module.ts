@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {NgOptimizedImage} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     SidebarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgOptimizedImage,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

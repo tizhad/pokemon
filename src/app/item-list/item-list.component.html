@@ -1,2 +1,14 @@
-<p>item-list works!</p>
-<app-card></app-card>
+<div>
+  <div>
+    <h1>Pokemons</h1>
+  </div>
+  <div *ngIf="pokemons.length">
+    <div *ngFor="let pokemon of pokemons">
+      <app-card [pokemon]="pokemon"></app-card>
+    </div>
+  </div>
+  <div *ngIf="!pokemons.length">
+    <h2>No pokemons found</h2>
+  </div>
+
+</div>

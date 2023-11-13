@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -7,16 +7,23 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl: string = environment.apiUrl;
+  private baseUrl: string = environment.baseUrl;
+  private defaultLimit: number = 20;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getPokemons(): Observable<any> {
-    const url:string = `${this.apiUrl}`;
+    const url: string = `${this.baseUrl}?limit=${this.defaultLimit}`;
     return this.http.get(url);
   }
 
   getPokemonImage(pokemonId: number) {
     return `${environment.imageApiUrl}/${pokemonId}.png`;
+  }
+
+  getPokemon(pokemonId: number): Observable<any> {
+    const url: string = `${this.baseUrl}/${pokemonId}`;
+    return this.http.get(url);
   }
 }

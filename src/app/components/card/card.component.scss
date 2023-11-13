@@ -1,14 +1,22 @@
 .card {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
 .card-title {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  color: #333;
   padding: 10px;
   margin: 0;
+  align-items: center;
 }
 
 .card-content {
@@ -22,11 +30,14 @@
 }
 
 .card-arrow {
-  float: right;
   font-size: 20px;
   cursor: pointer;
-  padding: 10px;
   transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+
+.arrow-rotate {
+  transform: rotate(90deg);
 }
 
 .card-expanded .card-arrow {

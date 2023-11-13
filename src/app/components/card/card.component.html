@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-title">
+    <h3>{{pokemon.name}}</h3>
+    <span class="card-arrow"
+          (click)="onArrowClick()"
+          [ngClass]="{'arrow-rotate' : !isContentVisible}">&#9654;</span>
+  </div>
+  <div *ngIf="isContentVisible" class="card-content">
+    <img class="card-image" src="{{pokemon.imageUrl}}" alt="Card Image">
+  </div>
+
+</div>

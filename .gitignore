@@ -5,7 +5,6 @@
 /tmp
 /out-tsc
 /bazel-out
-/environment
 
 # Node
 /node_modules
@@ -37,6 +36,11 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
+
+
+# Angular environment files
+!/environment.ts
+!/environment.prod.ts
 
 # System files
 .DS_Store

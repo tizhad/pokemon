@@ -9,6 +9,8 @@ import { ItemListComponent } from './components/item-list/item-list.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import { AboutComponent } from './components/about/about.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     FooterComponent,
     ItemListComponent,
-    SidebarComponent
+    SidebarComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     NgOptimizedImage,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

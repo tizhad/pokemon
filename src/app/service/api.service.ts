@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class ApiService {
   private baseUrl: string = environment.baseUrl;
-  private defaultLimit: number = 20;
+  private defaultLimit: number = 1000;
 
   constructor(private http: HttpClient) {
   }

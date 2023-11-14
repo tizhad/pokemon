@@ -33,6 +33,10 @@ export class ItemListComponent implements OnInit {
       pokemon.imageUrl = this.getPokemonImage(pokemon.id);
       return pokemon;
     });
+    if (this.pokemons.length === 0) {
+      this.errorMessage = 'No pokemons found!';
+      return;
+    }
   }
 
   handleError(error: HttpErrorResponse) {

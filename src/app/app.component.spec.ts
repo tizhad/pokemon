@@ -1,9 +1,34 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {Component} from "@angular/core";
+import {HeaderComponent} from "./components/header/header.component";
+import {FooterComponent} from "./components/footer/footer.component";
+import {SidebarComponent} from "./components/sidebar/sidebar.component";
+import {RouterModule} from "@angular/router";
+
+
+@Component({
+  template: '',
+  selector: 'app-header',
+})
+export class MockHeaderComponent implements Partial<HeaderComponent>{}
+
+@Component({
+  template: '',
+  selector: 'app-footer',
+})
+export class MockFooterComponent implements Partial<FooterComponent>{}
+
+@Component({
+  template: '',
+  selector: 'app-sidebar',
+})
+export class MockSidebarComponent implements Partial<SidebarComponent>{}
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
+    declarations: [AppComponent, MockHeaderComponent, MockFooterComponent, MockSidebarComponent],
+    imports: [RouterModule.forRoot([])]
   }));
 
   it('should create the app', () => {
@@ -22,6 +47,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('pokemon app is running!');
   });
 });

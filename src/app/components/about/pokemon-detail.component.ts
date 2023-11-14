@@ -17,11 +17,15 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.route);
     this.route.params.subscribe(params => {
-      this.pokemonId = params['id'];
+      this.pokemonId = parseInt(params['id']);
+      if (this.pokemonId) {
+        this.pokemon.imageUrl = this.apiService.getPokemonImage(this.pokemonId);
+        this.getPokemonData();
+      }
     });
-    this.pokemon.imageUrl = this.apiService.getPokemonImage(this.pokemonId);
-    this.getPokemonData();
+
   }
 
   getPokemonData() {

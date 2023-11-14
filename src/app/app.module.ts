@@ -11,6 +11,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import { PokemonDetailComponent } from './components/about/pokemon-detail.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AppRoutingModule} from "./app-routing.module";
     FooterComponent,
     ItemListComponent,
     SidebarComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Pokemon} from "../../models/pokemon";
 import {ApiService} from "../../service/api.service";
 import {ExtractorServiceService} from "../../service/extractor-service.service";
+import {ActivatedRoute, Data} from "@angular/router";
+import {HttpErrorResponse} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-item-list',
@@ -10,24 +13,30 @@ import {ExtractorServiceService} from "../../service/extractor-service.service";
 })
 export class ItemListComponent implements OnInit {
   pokemons: Pokemon[] = [];
+  errorMessage: string = '';
 
   ngOnInit(): void {
-    this.getPokemonsData();
+    this.route.data.subscribe({
+      next: data => this.handlePokemonData(data),
+      error: error => this.handleError(error)
+    })
   }
 
   constructor(private apiService: ApiService,
-              private extractorService: ExtractorServiceService) {
+              private extractorService: ExtractorServiceService,
+              private route: ActivatedRoute) {
   }
 
-  getPokemonsData() {
-    this.apiService.getPokemons()
-      .subscribe((data: any) => {
-        data.results.map((pokemon: any) => {
-          pokemon.id = this.extractorService.extractItemId(pokemon.url);
-          pokemon.imageUrl = this.getPokemonImage(pokemon.id);
-          this.pokemons.push(pokemon);
-        })
-      });
+  handlePokemonData(data: Data) {
+    this.pokemons = data['pokemons'].results.map((pokemon: Pokemon) => {
+      pokemon.id = this.extractorService.extractItemId(pokemon.url);
+      pokemon.imageUrl = this.getPokemonImage(pokemon.id);
+      return pokemon;
+    });
+  }
+
+  handleError(error: HttpErrorResponse) {
+    this.errorMessage = error.message;
   }
 
   getPokemonImage(pokemonId: number) {

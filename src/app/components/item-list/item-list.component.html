@@ -8,7 +8,12 @@
     </div>
   </div>
   <div *ngIf="!pokemons.length">
-    <h2>No pokemons found</h2>
+    <app-error-message [message]="'No Pokemon found! Please try again.'"></app-error-message>
+
+    <h2>{{errorMessage}}</h2>
+  </div>
+  <div *ngIf="errorMessage">
+    <app-error-message [message]="errorMessage"></app-error-message>
   </div>
 
 </div>

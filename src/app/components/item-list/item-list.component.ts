@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Pokemon} from "../../models/pokemon";
 import {ApiService} from "../../service/api.service";
 import {ExtractorServiceService} from "../../service/extractor-service.service";
@@ -12,14 +12,22 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./item-list.component.scss']
 })
 export class ItemListComponent implements OnInit {
-  pokemons: Pokemon[] = [];
+  private pokemonsData: Pokemon[] = [];
   errorMessage: string = '';
+  start: number = 0;
+  pokemonPerPage: number = 5;
+  pokemons: Pokemon[] = [];
+  max: number = 0;
+  isLoading: boolean = true;
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.data.subscribe({
-      next: data => this.handlePokemonData(data),
+      next: data =>
+        this.handlePokemonData(data),
       error: error => this.handleError(error)
-    })
+    });
+    this.loadMorePokemons();
   }
 
   constructor(private apiService: ApiService,
@@ -28,15 +36,37 @@ export class ItemListComponent implements OnInit {
   }
 
   handlePokemonData(data: Data) {
-    this.pokemons = data['pokemons'].results.map((pokemon: Pokemon) => {
+    this.pokemonsData = data['pokemons'].results.map((pokemon: Pokemon) => {
       pokemon.id = this.extractorService.extractItemId(pokemon.url);
       pokemon.imageUrl = this.getPokemonImage(pokemon.id);
       return pokemon;
     });
-    if (this.pokemons.length === 0) {
+    this.max = this.pokemonsData.length;
+    if (this.pokemonsData.length === 0) {
       this.errorMessage = 'No pokemons found!';
       return;
     }
+
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    let maxScrollPosition: number = document.documentElement.scrollHeight - window.innerHeight;
+    let currentScrollPosition: number = window.scrollY;
+
+    if (currentScrollPosition >= maxScrollPosition && !this.isLoading) {
+      this.loadMorePokemons();
+    }
+  }
+
+  loadMorePokemons() {
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.start += this.pokemonPerPage;
+      this.pokemons = this.pokemonsData.slice(0, this.start + this.pokemonPerPage);
+      this.isLoading = false;
+    }, 500);
   }
 
   handleError(error: HttpErrorResponse) {
@@ -46,5 +76,4 @@ export class ItemListComponent implements OnInit {
   getPokemonImage(pokemonId: number) {
     return this.apiService.getPokemonImage(pokemonId);
   }
-
 }

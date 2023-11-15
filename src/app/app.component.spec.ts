@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
 import {Component} from "@angular/core";
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
@@ -11,19 +11,22 @@ import {RouterModule} from "@angular/router";
   template: '',
   selector: 'app-header',
 })
-export class MockHeaderComponent implements Partial<HeaderComponent>{}
+export class MockHeaderComponent implements Partial<HeaderComponent> {
+}
 
 @Component({
   template: '',
   selector: 'app-footer',
 })
-export class MockFooterComponent implements Partial<FooterComponent>{}
+export class MockFooterComponent implements Partial<FooterComponent> {
+}
 
 @Component({
   template: '',
   selector: 'app-sidebar',
 })
-export class MockSidebarComponent implements Partial<SidebarComponent>{}
+export class MockSidebarComponent implements Partial<SidebarComponent> {
+}
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -35,17 +38,12 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
+    expect(fixture.componentInstance.title).toEqual('pokemon');
   });
 
   it(`should have as title 'pokemon'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('pokemon');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
   });
 });

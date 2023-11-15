@@ -1,4 +1,4 @@
-<div>
+<div style="overflow-y: scroll">
   <div>
     <h1>Pokemons</h1>
   </div>
@@ -10,5 +10,7 @@
   <div *ngIf="errorMessage">
     <app-error-message [message]="errorMessage"></app-error-message>
   </div>
-
+  <div *ngIf="isLoading" class="spinner">
+    <app-spinner></app-spinner>
+  </div>
 </div>

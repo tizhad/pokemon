@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { PokemonDetailComponent } from './components/about/pokemon-detail.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
     ItemListComponent,
     SidebarComponent,
     PokemonDetailComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

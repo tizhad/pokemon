@@ -12,6 +12,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {ExtractorServiceService} from "../../service/extractor-service.service";
 import {ErrorMessageComponent} from "../error-message/error-message.component";
 import SpyObj = jasmine.SpyObj;
+import {SpinnerComponent} from "../spinner/spinner.component";
 
 
 @Component({
@@ -28,6 +29,14 @@ export class MockCardComponent implements Partial<CardComponent> {
 })
 export class MockErrorMessageComponent implements Partial<ErrorMessageComponent> {
   @Input() message: string = '';
+}
+
+@Component({
+  template: '',
+  selector: 'app-spinner',
+})
+export class MockSpinnerComponent implements Partial<SpinnerComponent> {
+  // @Input() message: string = '';
 }
 
 describe('ItemListComponent', () => {
@@ -69,7 +78,7 @@ describe('ItemListComponent', () => {
 
     mockApiService.getPokemons.and.returnValue(of(pokemons));
     TestBed.configureTestingModule({
-      declarations: [ItemListComponent, MockCardComponent, MockErrorMessageComponent],
+      declarations: [ItemListComponent, MockCardComponent, MockErrorMessageComponent, MockSpinnerComponent],
       imports: [HttpClientModule, RouterTestingModule.withRoutes([])],
       providers: [
         {provide: ApiService, useValue: mockApiService},

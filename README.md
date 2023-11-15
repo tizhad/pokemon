@@ -1,27 +1,34 @@
-# Pokemon
+# Pokemon ⚡️
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+### Overview
+This project is an Angular application that fetches and displays a list of Pokemon from an API.
+The application is composed of several components and services that work together to provide the desired functionality.
 
-## Development server
+### Project Structure
+The project is structured in the standard Angular way, with the main application code located in the `src/app` directory. The `components` directory contains the Angular components used in the application, and the `services` directory contains the services.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Components
+- `ItemListComponent`: This is the main component of the application. It fetches the Pokemon data from the `ApiService` and displays it in a list.
 
-## Code scaffolding
+### Services
+- `ApiService`: This service is responsible for fetching the Pokemon data from the API.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Setup and Installation
+To set up and run the project, you need to have Node.js and npm installed on your machine.
 
-## Build
+#### Follow these steps:
+- Clone the repository
+- Navigate to the project directory
+- Install the dependencies: `npm install`
+- Start the application: `ng serve`
+- The application will be available at `http://localhost:4200`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Usage
+After starting the application, you can navigate through the list of Pokemon. Clicking on a Pokemon will display more details about it.
 
-## Running unit tests
+### Testing
+The project uses Jasmine and Karma for unit testing. To run the tests, use the command `ng test`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Demo
+Project is ready on this link on Stackblitz:
+https://stackblitz.com/github/tizhad/pokemon

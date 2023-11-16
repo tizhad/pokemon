@@ -11,8 +11,8 @@ import {ActivatedRoute} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
 import {ExtractorServiceService} from "../../service/extractor-service.service";
 import {ErrorMessageComponent} from "../error-message/error-message.component";
-import SpyObj = jasmine.SpyObj;
 import {SpinnerComponent} from "../spinner/spinner.component";
+import SpyObj = jasmine.SpyObj;
 
 
 @Component({
@@ -36,7 +36,6 @@ export class MockErrorMessageComponent implements Partial<ErrorMessageComponent>
   selector: 'app-spinner',
 })
 export class MockSpinnerComponent implements Partial<SpinnerComponent> {
-  // @Input() message: string = '';
 }
 
 describe('ItemListComponent', () => {

@@ -5,7 +5,8 @@ This project is an Angular application that fetches and displays a list of Pokem
 The application is composed of several components and services that work together to provide the desired functionality.
 
 ### Project Structure
-The project is structured in the standard Angular way, with the main application code located in the `src/app` directory. The `components` directory contains the Angular components used in the application, and the `services` directory contains the services.
+The project is structured in the standard Angular way, with the main application code located in the `src/app` directory.
+The `components` directory contains the Angular components used in the application, and the `services` directory contains the services.
 
 ### Components
 - `ItemListComponent`: This is the main component of the application. It fetches the Pokemon data from the `ApiService` and displays it in a list.
@@ -22,9 +23,6 @@ To set up and run the project, you need to have Node.js and npm installed on you
 - Install the dependencies: `npm install`
 - Start the application: `ng serve`
 - The application will be available at `http://localhost:4200`.
-
-### Usage
-After starting the application, you can navigate through the list of Pokemon. Clicking on a Pokemon will display more details about it.
 
 ### Testing
 The project uses Jasmine and Karma for unit testing. To run the tests, use the command `ng test`.
